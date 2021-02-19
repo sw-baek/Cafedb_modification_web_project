@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block container %}
+
+    <script src="/static/js/edits.js"></script>
+
+{#    <script>alert("본인의 상점만 수정할 수 있습니다!")</script>#}
+
+    <div class="container">
+        <h1>Edit Shop INFO</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form shop_form %}
+            <button type="submit"
+                    class="btn btn-primary"
+                    onclick="to_list()">수정완료</button>
+
+        </form>
+    </div>
+    {% endblock %}
+{#{% endblock %}#}

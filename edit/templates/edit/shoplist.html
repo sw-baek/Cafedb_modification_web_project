@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block container %}
+
+    <script src="/static/js/edits.js"></script>
+    <main>
+    <div class="album py-5 bg-light">
+    <div class="container">
+        <h1>SHOP_INFO</h1>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for s in shop %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                 preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>
+                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body">
+              <p class="card-text">가게이름 : {{ s.name }}</p>
+                <p class="card-text">주소 : {{ s.addr }}</p>
+                <p class="card-text">업 : {{ s.type }}</p>
+                <p class="card-text">영업여부 : {{ s.open }}</p>
+                <p class="card-text">전화번호 : {{ s.tel }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{% url 'edit:shop_detail' s.id %}">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+{#                  <button type="button" class="btn btn-sm btn-outline-secondary"#}
+{#                          onclick="update_info()">Edit</button>#}
+                </div>
+{#                <small class="text-muted">9 mins</small>#}
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div></div></main>
+
+{% endblock %}

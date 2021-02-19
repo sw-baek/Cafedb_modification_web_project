@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block container %}
+{#{% block html_header %}#}
+    <script src="/static/js/edits.js"></script>
+{#{% endblock %}#}
+
+{#{% block html_body %}#}
+
+
+    <div class="container">
+        <h1>Shop INFO</h1>
+
+
+     <div class="col-md-7 col-lg-8">
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+
+
+                <div class="col-12">
+                  <h5>ShopName</h5>
+                  <div class="input-group has-validation">
+                      <p>  {{ shop.name }}</p>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                    <h5>Opening Hours</h5>
+                  <div class="input-group has-validation">
+                    <p>  {{ shop.addr }}</p>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                    <h5>Address</h5>
+                    <div class="input-group has-validation">
+                        <p>  {{ shop.type }}</p>
+                </div></div>
+
+
+                <div class="col-12">
+                    <h5>Direct Number</h5>
+                    <div class="input-group has-validation">
+                        <p>  {{ shop.open }}</p>
+                </div></div>
+
+                <div class="col-12">
+                    <h5>Direct Number</h5>
+                    <div class="input-group has-validation">
+                        <p>  {{ shop.tel }}</p>
+                </div></div>
+
+            </div>
+            </form>
+         <a href="home"><button type="button"
+                class="btn btn-primary" onclick="to_list()">이전으로 돌아가기</button></a>
+{#        {% if post.author_name == user.username %}#}
+        <a href="{% url 'edit:shop_update' shop.id %}"><button type="button"
+                class="btn btn-primary"
+                              onclick="update_info({{ shop.id }})">수정하기</button></a>
+        <a href="{% url 'edit:shop_delete' shop.id %}"><button type="submit"
+                    class="btn btn-primary" onclick="delete_shop({{ shop.id }})">폐업했어요</button></a>
+{#        {% else %}#}
+{#        <p>본인이 작성한 글만 수정, 삭제가 가능합니다.</p>#}
+{#        <button type="button"#}
+{#                class="btn btn-warning" disabled="disabled">수정</button>#}
+{#        <button type="button"#}
+{#                class="btn btn-danger" disabled="disabled">삭제</button>#}
+{#        {% endif %}#}
+{#     </div>#}
+    </div>
+    {% endblock %}
+</div>
+{#{% endblock %}#}

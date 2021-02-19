@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block container %}
+<script src='/static/js/edits.js'></script>
+
+<div class="container">
+    <script>alert("로그인이 필요합니다! 이후 되돌릴 수 없습니다")</script>
+    <h4>deleted!</h4>
+    <a href="/edit/shoplist"><button type="button"
+                class="btn btn-primary" onclick="to_list()">돌아가기</button></a>
+</div>
+{% endblock %}
